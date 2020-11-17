@@ -1,0 +1,10 @@
+# First, setup USB rules for device
+# lsusb -> find 'Garmin' device and 8 character id
+# e.g.: ID 091e:0003 Garmin International GPS (various models)
+# sudo vim /etc/udev/rules.d/90-usbpermission.rules
+# ATTRS{idVendor}=="091e", ATTRS{idProduct}=="0003", SUBSYSTEM="usb", GROUP="plugdev",
+# MODE="0666"
+# then run: sudo usermod -aG plugdev $USER
+# reset
+#
+# garmin_save_runs will now pull all runs on device and save to current directory

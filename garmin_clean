@@ -1,0 +1,12 @@
+#!/bin/bash
+# This script cleans out
+
+if [ $# == 1 ]; then
+    sed -n -i '/<track/q;p' $1
+    sed -i '2,3d' $1
+    sed -i '$a </run>' $1
+else
+    sed -n '/<track/q;p' $1 > $2
+    sed -i '2,3d'  $2
+    sed -i '$a </run>' $2
+fi
